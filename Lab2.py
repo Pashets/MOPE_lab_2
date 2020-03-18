@@ -9,11 +9,13 @@ def get_r_kr(m):
     for i in range(len(table_values.keys())):
         if m == list(table_values.keys())[i]:
             return list(table_values.values())[i]
-        if m > list(table_values.keys())[i]:
-            less_than_m_key = list(table_values.keys())[i]
-            less_than_m = list(table_values.values())[i]
-            more_than_m_key = list(table_values.keys())[i + 1]
-            more_than_m = list(table_values.values())[i + 1]
+        if m > 20:
+            return list(table_values.values())[-1]
+        if m < list(table_values.keys())[i]:
+            less_than_m_key = list(table_values.keys())[i - 1]
+            less_than_m = list(table_values.values())[i - 1]
+            more_than_m_key = list(table_values.keys())[i]
+            more_than_m = list(table_values.values())[i]
             return less_than_m + (more_than_m - less_than_m) * (m - less_than_m_key) / (
                     more_than_m_key - less_than_m_key)
 
