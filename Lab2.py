@@ -7,10 +7,13 @@ from math import sqrt
 def get_r_kr(m):
     table_values = {2: 1.73, 6: 2.16, 8: 2.43, 10: 2.62, 12: 2.75, 15: 2.9, 20: 3.08}
     for i in range(len(table_values.keys())):
-        if m == list(table_values.keys())[i]:
-            return list(table_values.values())[i]
+        if m > 25:
+            print('Забагато дослідів. Щось тут не так')
+            exit()
         if m > 20:
             return list(table_values.values())[-1]
+        if m == list(table_values.keys())[i]:
+            return list(table_values.values())[i]
         if m < list(table_values.keys())[i]:
             less_than_m_key = list(table_values.keys())[i - 1]
             less_than_m = list(table_values.values())[i - 1]
